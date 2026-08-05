@@ -5,8 +5,9 @@ real, publicly released e-commerce dataset: ~100,000 orders from a
 Brazilian online marketplace, spanning customers, sellers, products,
 payments, reviews, and geolocation across 8 linked relational tables.
 
-> **Dataset:** Olist Brazilian E-Commerce Public Dataset — 8 relational
-> CSVs plus a category translation lookup, covering real orders from
+> **Dataset:** [Olist Brazilian E-Commerce Public Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+
+> 8 relational CSVs plus a category translation lookup, covering real orders from
 > September 2016 to October 2018.
 
 ---
