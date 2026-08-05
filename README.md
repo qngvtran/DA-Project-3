@@ -35,7 +35,7 @@ Business questions:
 | **Python (Pandas)** — Google Colab | Clean 8 relational files, resolve a real key-granularity trap, aggregate a noisy 1M-row geolocation table, engineer delivery-performance metrics, build a full star schema |
 | **PostgreSQL (SQL)** | 8-table relational schema with real foreign keys + 12 multi-table business queries, including window functions |
 | **Excel** | Denormalized, analysis-ready KPI dashboard built from the star schema |
-| **Power BI** | A genuine multi-fact-table ("galaxy schema") data model across 5 report pages |
+| **Power BI** | - |
 | **GitHub** | Documentation and version control (this repo) |
 
 ---
@@ -62,12 +62,40 @@ Business questions:
 
 ### 1. Data cleaning (Python / Pandas, in Google Colab)
 
+- Loads all 8 raw relational files plus the category translation lookup
+- Builds `dim_customers`, `dim_sellers`
+- Builds `dim_products`, merged with English category names, with a
+  sensible fallback for two untranslated categories
+- Builds `fact_orders` with engineered delivery-performance metrics
+  (`delivery_days_actual`, `delivery_delta_days`, `is_late`)
+- Builds `fact_order_items`, `fact_payments`, `fact_reviews`
+
 ### 2. SQL analysis (PostgreSQL)
+- revenue and order trends
+- delivery performance by state
+- whether lateness hurts review scores
+- top categories and sellers
+- payment method breakdowns
+- running revenue totals
+- top category per state
 
 ### 3. Excel dashboard
+- Orders sheet: a denormalized, order-grain view (99,441 rows) -
+  purchase info, delivery metrics, payment summary, and review score all
+  pre-joined for easy pivoting
+- Seller Performance / Category Performance sheets: pre-aggregated
+  summaries
+- Dashboard sheet: KPI cards (Total Orders, Revenue, Late Delivery
+  Rate, Avg Review Score), 4 formula-driven summary tables, and 4 charts
 
 ### 4. Power BI dashboard
 
 ---
 
 ## Key findings
+
+- Total revenue: R$15.4M across 96,478 delivered orders (Sep 2016 – Oct 2018)
+- 6.8% of delivered orders arrived after their estimated delivery date
+- Orders delivered late average a noticeably lower review score than
+  on-time orders - a clear, data-backed case for investing in delivery
+  reliability
