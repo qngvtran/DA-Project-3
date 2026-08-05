@@ -44,20 +44,16 @@ Business questions:
 ```
 .
 ├── data/
-│   ├── raw/                        # original, unmodified source data
-│   │   └── add
-│   └── processed/                  # cleaned output for SQL/Excel/Power BI
+│   ├── raw/
+│   └── processed/
 │
 ├── excel/
-│   └── add      # KPI dashboard, formulas + charts
 │
-├── images/                     # screenshots
+├── images/     
 │
 ├── notebooks/
-│   └── add           # Google Colab notebook
 │ 
 ├── sql/
-│   └── add         # 12 business-style questions 
 │ 
 └── README.md
 ```
